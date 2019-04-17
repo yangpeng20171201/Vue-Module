@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>51钩子函数参数的使用</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" v-runoob:hello.a.b="message">
+    </div>
+
+    <script>
+        //有时候我们不需要其他钩子函数，我们可以简写函数，如下格式
+        // Vue.directive('runoob', function (el, binding) {
+        //   // 设置指令的背景颜色
+        //   el.style.backgroundColor = binding.value.color
+        // })
+        Vue.directive('runoob', {
+            //binding: 一个对象，包含以下属性：
+            bind: function (el, binding, vnode) {
+                var s = JSON.stringify
+                el.innerHTML =
+                    //name: 指令名，不包括 v- 前缀。
+                    'name: ' + s(binding.name) + '<br>' +
+                    //value: 指令的绑定值， 例如： v-my-directive="1 + 1", value 的值是 2。
+                    'value: ' + s(binding.value) + '<br>' +
+                    // oldValue: 指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。
+                    //expression: 绑定值的表达式或变量名。 例如 v-my-directive="1 + 1" ， expression 的值是 "1 + 1"。
+                    'expression: ' + s(binding.expression) + '<br>' +
+                    //arg: 传给指令的参数。例如 v-my-directive:foo， arg 的值是 "foo"。
+                    'argument: ' + s(binding.arg) + '<br>' +
+                    //modifiers: 一个包含修饰符的对象。 例如： v-my-directive.foo.bar, 修饰符对象 modifiers 的值是 { foo: true, bar: true }。
+                    'modifiers: ' + s(binding.modifiers) + '<br>' +
+                    //vnode: Vue 编译生成的虚拟节点。
+                    // oldVnode: 上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。
+                    'vnode keys: ' + Object.keys(vnode).join(', ')
+            }
+        })
+        new Vue({
+            //el: 指令所绑定的元素，可以用来直接操作 DOM 。
+            el: '#app',
+            data: {
+                message: '菜鸟教程!'
+            }
+        })
+    </script>
+</body>
+
+</html>
