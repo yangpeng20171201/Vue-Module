@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 设置对象的属性</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p style="font-size:25px;">计数器: {{ products.id }}</p>
+        <button @click="products.id++" style="font-size:25px;">点我</button>
+    </div>
+    <script type="text/javascript">
+    //创建了一个变量 myproduct
+        var myproduct = { "id": 1, name: "book", "price": "20.00" };
+        //该变量在赋值给了 Vue 实例的 data 对象
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                counter: 1,
+                products: myproduct
+            }
+        });
+        //在产品中添加了数量属性 qty，但是 get/set 方法只可用于 id，name 和 price 属性，却不能在 qty 属性中使用。
+        vm.products.qty = "1";
+        console.log(vm);
+        vm.$watch('counter', function (nval, oval) {
+            alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+        });
+    </script>
+</body>
+
+</html>D
