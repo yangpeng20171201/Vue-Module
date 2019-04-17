@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03Vue提供的实例属性和用户自定义的属性区分</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_det">
+        <h1>name : {{name}}</h1>
+        <h1>age : {{age}}</h1>
+        <h1>birthdate : {{birthdate}}</h1>
+    </div>
+    <script type="text/javascript">
+    //我们的数据对象
+    var data = { name : "Yves", age : 24, birthdate : "1996-12-01" }
+    var vm = new Vue({
+        el:'#vue_det',
+        data:data
+    })
+
+    document.write(vm.$data === data) //true
+    document.write("<br>")
+    document.write(vm.$el === document.getElementById('vue_det')) //true
+ 
+    </script>
+    </script>
+</body>
+</html>

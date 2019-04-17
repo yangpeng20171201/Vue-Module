@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02Vue的数据对象引用</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="vue_det">
+        <h1>name : {{name}}</h1>
+        <h1>age : {{age}}</h1>
+        <h1>birthdate : {{birthdate}}</h1>
+    </div>
+    <script type="text/javascript">
+    //我们的数据对象
+    var data = { name : "Yves", age : 24, birthdate : "1996-12-01" }
+    var vm = new Vue({
+        el:'#vue_det',
+        data:data
+    })
+    //它们引用相同的对象
+    document.write(vm.birthdate === data.birthdate) //true
+    document.write("<br>")
+    //设置属性也会影响到原始数据
+    vm.name = "Sam"
+    document.write(data.name + "<br>") //San
+     // ……反之亦然
+    data.age = 18
+    document.write(vm.age) // 18
+    </script>
+    </script>
+</body>
+</html>
