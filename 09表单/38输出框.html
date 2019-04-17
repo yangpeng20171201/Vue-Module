@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>37输出框</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        使用 v-model 实现双向数据绑定 
+        v-model 会根据控件类型自动选取正确的方法来更新元素。
+    -->
+    <div id="app">
+        <p>input 元素：</p>
+        <input v-model="message" placeholder="编辑我……">
+        <p>消息是: {{ message }}</p>
+
+        <p>textarea 元素：</p>
+        <p style="white-space: pre">{{ message2 }}</p>
+        <textarea v-model="message2" placeholder="多行文本输入……"></textarea>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Vue.js',
+                message2: '渐进式JavaScript框架\r\nhttps://cn.vuejs.org/index.html'
+            }
+        })
+    </script>
+</body>
+
+</html>
