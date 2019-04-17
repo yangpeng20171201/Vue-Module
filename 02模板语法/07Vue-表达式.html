@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07Vue-表达式</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{5+5}}<br>
+        {{ ok ? 'YES' : 'NO' }}<br>
+        {{ message.split('').reverse().join('') }}
+        <!-- id = "list-1" -->
+        <div v-bind:id="'list-' + id">Vue表达式的练习案例</div>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: "#app",
+            data: {
+                ok: true,
+                message: 'accurate',
+                id: 1
+            }
+        })
+    </script>
+</body>
+
+</html>

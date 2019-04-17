@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>05使用 v-html 指令用于输出 html 代码</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+         <div v-html="message"></div>
+    </div>
+    <script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            message:'<h1>v-html指令可以用于输出html代码</h1>'
+        }
+    })
+    </script>
+</body>
+</html>
