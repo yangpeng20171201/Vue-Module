@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>27class样式绑定</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+        .active {
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            background-color: royalblue;
+        }
+
+        .text-danger {
+            background-color: sienna;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="static">
+            <!-- v-bind:class 设置一个对象，从而动态的切换 class: -->
+            <!-- text-danger 类背景颜色覆盖了 active 类的背景色： -->
+            <div v-bind:class="{ active:isActive, 'text-danger' : hasError }"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                // 设置为 false 则不显示
+                isActive: true,
+                hasError: true
+
+            }
+        })
+    </script>
+</body>
+
+</html>

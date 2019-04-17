@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>34可以使用数组将多个样式对象应用到一个元素上</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:style="[baseStyles, overridingStyles]">Vue的练习demo</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                baseStyles: {
+                    color: 'green',
+                    fontSize: 30
+                },
+                overridingStyles:{
+                    'font-weight':'bold'
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

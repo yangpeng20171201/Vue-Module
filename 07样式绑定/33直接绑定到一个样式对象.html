@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>33直接绑定到一个样式对象</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:style="styleObject">Vue的练习demo</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                styleObject: {
+                    activeColor: 'green',
+                    fontSize: 30
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
